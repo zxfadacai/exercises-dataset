@@ -1,4 +1,4 @@
-__pycache__/
+﻿__pycache__/
 *.pyc
 .DS_Store
 .venv/
@@ -6,3 +6,9 @@ __pycache__/
 
 # Claude Code local settings (do not publish)
 .claude/
+
+# Local backup / temp files
+*.bak
+_names_en.txt
+_names_full.txt
+translation_report.txt

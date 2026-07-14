@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Setup · ExerciseDB</title>
+  <title>开发者设置 · ExerciseDB</title>
   <style>
     /* ── Design Tokens ──────────────────────────────── */
     :root {
@@ -470,12 +470,12 @@
 <header class="site-header">
   <div class="site-logo">Exercise<span>DB</span></div>
   <div class="header-divider"></div>
-  <span class="header-label">Developer Setup</span>
+  <span class="header-label">开发者设置</span>
   <a class="back-link" href="index.html">
     <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M10 4L6 8l4 4"/>
     </svg>
-    Back to Browse
+    返回浏览
   </a>
 </header>
 
@@ -484,7 +484,7 @@
 
   <!-- Left Nav -->
   <nav class="page-nav" id="page-nav">
-    <div class="nav-group-label">Contents</div>
+    <div class="nav-group-label">目录</div>
     <a class="nav-link active" href="#db-setup" data-section="db-setup">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <ellipse cx="8" cy="4" rx="6" ry="2.5"/>
@@ -492,7 +492,7 @@
         <path d="M2 7v3c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5V7"/>
         <path d="M2 10v2c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5v-2"/>
       </svg>
-      Database Setup
+      数据库设置
     </a>
     <div class="nav-spacer"></div>
     <a class="nav-link" href="#api-integration" data-section="api-integration">
@@ -501,7 +501,7 @@
         <polyline points="11 4 15 8 11 12"/>
         <line x1="8" y1="2" x2="8" y2="14"/>
       </svg>
-      API Integration
+      API 集成
     </a>
     <div class="nav-spacer"></div>
     <a class="nav-link" href="#ask-llm" data-section="ask-llm">
@@ -509,7 +509,7 @@
         <path d="M14 2H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3l3 2 3-2h3a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
         <path d="M8 6v2M8 10h.01"/>
       </svg>
-      Ask Your LLM
+      AI 助手
     </a>
   </nav>
 
@@ -520,9 +520,9 @@
     <section class="section" id="db-setup">
       <div class="section-header">
         <div class="section-num">1</div>
-        <h2 class="section-title">Database Setup</h2>
+        <h2 class="section-title">数据库设置</h2>
       </div>
-      <p class="section-desc">Import all 1,324 exercises into your database in 3 steps. Choose your database engine below.</p>
+      <p class="section-desc">三步将 1,324 个动作导入你的数据库。选择你的数据库引擎。</p>
 
       <div class="section-body">
         <!-- DB Tabs -->
@@ -538,10 +538,10 @@
           <div class="step">
             <div class="step-num">1</div>
             <div class="step-body">
-              <h3 class="step-title">Create Table</h3>
-              <p class="step-desc">Run this in your database client (SSMS, DBeaver, pgAdmin, TablePlus, etc.):</p>
+              <h3 class="step-title">创建数据表</h3>
+              <p class="step-desc">在你的数据库客户端中运行（SSMS、DBeaver、pgAdmin、TablePlus 等）：</p>
               <div class="code-block">
-                <button class="copy-btn" id="copy-create-btn">Copy</button>
+                <button class="copy-btn" id="copy-create-btn">复制</button>
                 <pre class="code-pre" id="create-table-sql"></pre>
               </div>
             </div>
@@ -551,14 +551,14 @@
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-body">
-              <h3 class="step-title">Import Data</h3>
-              <p class="step-desc">Generate a <code>.sql</code> file with all 1,324 INSERT statements. The file is built entirely in your browser — nothing is uploaded to any server.</p>
+              <h3 class="step-title">导入数据</h3>
+              <p class="step-desc">Generate a <code>.sql</code> file with all 1,324 INSERT statements. 文件完全在浏览器本地生成，不上传到任何服务器。</p>
               <div style="display:flex;align-items:center;gap:0;">
                 <button class="generate-btn" id="generate-sql-btn">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
                     <path d="M8 2v8M5 7l3 3 3-3"/><path d="M2 12h12"/>
                   </svg>
-                  Generate INSERT SQL
+                  生成 INSERT SQL
                 </button>
                 <span class="generate-status" id="generate-status"></span>
               </div>
@@ -569,8 +569,8 @@
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-body">
-              <h3 class="step-title">Media Files</h3>
-              <p class="step-desc">Download the media archives and place them in your web server root or CDN. The <code>image</code> and <code>gif_url</code> columns store relative paths — prepend your base URL in your app.</p>
+              <h3 class="step-title">媒体文件</h3>
+              <p class="step-desc">Download the media archives and place them in your web server root or CDN. The <code>image</code> and <code>gif_url</code> columns store 相对路径，在你的应用中拼接基础 URL 即可。</p>
               <div class="code-block">
                 <pre class="code-pre">your-server.com/
 ├── images/   ← 1,324 JPG thumbnails
@@ -580,7 +580,7 @@
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px">
                   <circle cx="8" cy="8" r="6"/><path d="M8 7v4M8 5.5h.01"/>
                 </svg>
-                The <code>images/</code> and <code>videos/</code> folders are already included in the repository. After cloning, just copy them to your server or CDN — no separate download needed.
+                The <code>images/</code> and <code>videos/</code> folders are already included in the repository. After cloning, just copy them to 你的服务器或 CDN 即可，无需单独下载。
               </div>
             </div>
           </div>
@@ -594,9 +594,9 @@
     <section class="section" id="api-integration">
       <div class="section-header">
         <div class="section-num">2</div>
-        <h2 class="section-title">API Integration</h2>
+        <h2 class="section-title">API 集成</h2>
       </div>
-      <p class="section-desc">Client-side code examples showing how to call your backend API from your app. Enter your API base URL below — all examples update live.</p>
+      <p class="section-desc">Client-side code examples showing how to call your backend API from your app. Enter 在下方输入你的 API 基础 URL，所有示例将实时更新。</p>
 
       <div class="section-body">
         <!-- Base URL Input -->
@@ -631,11 +631,11 @@
             <div class="endpoint-header">
               <span class="method-badge">GET</span>
               <span class="endpoint-path">/exercises/<span style="color:var(--accent)">:id</span></span>
-              <span class="endpoint-desc">Fetch a single exercise by ID</span>
+              <span class="endpoint-desc">根据 ID 获取单个动作</span>
             </div>
             <div class="endpoint-body">
               <div class="code-block">
-                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+                <button class="copy-btn" onclick="copyBlock(this)">复制</button>
                 <pre class="code-pre api-code" data-endpoint="getOne" id="code-getOne"></pre>
               </div>
             </div>
@@ -646,11 +646,11 @@
             <div class="endpoint-header">
               <span class="method-badge">GET</span>
               <span class="endpoint-path">/exercises<span style="color:var(--text-tertiary)">?page=1&amp;limit=20</span></span>
-              <span class="endpoint-desc">Paginated list of exercises</span>
+              <span class="endpoint-desc">分页动作列表</span>
             </div>
             <div class="endpoint-body">
               <div class="code-block">
-                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+                <button class="copy-btn" onclick="copyBlock(this)">复制</button>
                 <pre class="code-pre api-code" data-endpoint="getAll" id="code-getAll"></pre>
               </div>
             </div>
@@ -661,11 +661,11 @@
             <div class="endpoint-header">
               <span class="method-badge">GET</span>
               <span class="endpoint-path">/exercises<span style="color:var(--text-tertiary)">?category=Strength&amp;body_part=Chest</span></span>
-              <span class="endpoint-desc">Filter by category, body part, equipment</span>
+              <span class="endpoint-desc">按分类、部位、器械筛选</span>
             </div>
             <div class="endpoint-body">
               <div class="code-block">
-                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+                <button class="copy-btn" onclick="copyBlock(this)">复制</button>
                 <pre class="code-pre api-code" data-endpoint="getFiltered" id="code-getFiltered"></pre>
               </div>
             </div>
@@ -681,16 +681,16 @@
     <section class="section" id="ask-llm">
       <div class="section-header">
         <div class="section-num">3</div>
-        <h2 class="section-title">Ask Your LLM</h2>
+        <h2 class="section-title">AI 助手</h2>
       </div>
       <p class="section-desc">
-        Don't want to write a backend from scratch? Copy this prompt into ChatGPT, Claude, Gemini, or any LLM — it contains everything needed to generate a complete, production-ready API in one shot.
+        Don't want 不想从零写后端？将此提示词复制到 ChatGPT、Claude、Gemini 或任何 AI 助手中，它包含了生成完整、生产级 API 所需的全部信息。
       </p>
 
       <div class="section-body">
         <div class="llm-selectors">
           <div class="selector-group">
-            <div class="selector-label">Framework</div>
+            <div class="selector-label">框架</div>
             <div class="selector-tabs" id="framework-tabs">
               <button class="selector-btn active" data-fw="express">Express.js</button>
               <button class="selector-btn" data-fw="fastapi">FastAPI</button>
@@ -701,7 +701,7 @@
             </div>
           </div>
           <div class="selector-group">
-            <div class="selector-label">Database</div>
+            <div class="selector-label">数据库</div>
             <div class="selector-tabs" id="llm-db-tabs">
               <button class="selector-btn active" data-llmdb="postgresql">PostgreSQL</button>
               <button class="selector-btn" data-llmdb="mysql">MySQL</button>
@@ -720,9 +720,9 @@
               <rect x="4" y="4" width="9" height="11" rx="1.5"/>
               <path d="M11 4V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1"/>
             </svg>
-            Copy Prompt
+            复制提示词
           </button>
-          <span class="llm-hint">Paste into ChatGPT, Claude, Gemini, or any LLM</span>
+          <span class="llm-hint">粘贴到 ChatGPT、Claude、Gemini 或任何 AI 助手</span>
         </div>
       </div>
     </section>
@@ -1496,9 +1496,9 @@ function switchDbTab(db) {
   createSqlEl.textContent = DB_SQL[db];
 }
 
-function copyToClipboard(text, btn, resetLabel = 'Copy') {
+function copyToClipboard(text, btn, resetLabel = '复制') {
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
+    btn.textContent = '已复制！';
     btn.classList.add('copied');
     setTimeout(() => {
       btn.textContent = resetLabel;
@@ -1572,13 +1572,13 @@ async function generateInsertSql() {
 
   try {
     if (!EXERCISES) {
-      generateStatus.textContent = 'Loading exercise data…';
+      generateStatus.textContent = '正在加载动作数据…';
       const res = await fetch('data/exercises.json');
       if (!res.ok) throw new Error('Could not load exercises.json');
       EXERCISES = await res.json();
     }
 
-    generateStatus.textContent = 'Generating…';
+    generateStatus.textContent = '正在生成…';
 
     await new Promise(r => setTimeout(r, 10));
 
@@ -1590,9 +1590,9 @@ async function generateInsertSql() {
     a.download = `exercises_insert_${currentDb}.sql`;
     a.click();
     URL.revokeObjectURL(url);
-    generateStatus.textContent = `✓ Downloaded exercises_insert_${currentDb}.sql`;
+    generateStatus.textContent = `✓ 已下载 exercises_insert_${currentDb}.sql`;
   } catch (e) {
-    generateStatus.textContent = 'Error generating file.';
+    generateStatus.textContent = '生成文件失败。';
     console.error(e);
   }
 
@@ -1680,10 +1680,10 @@ document.querySelectorAll('#llm-db-tabs .selector-btn').forEach(btn => {
 
 copyPromptBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(llmPromptBox.value).then(() => {
-    copyPromptBtn.textContent = '✓ Copied!';
+    copyPromptBtn.textContent = '✓ 已复制！';
     copyPromptBtn.classList.add('copied');
     setTimeout(() => {
-      copyPromptBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="9" height="11" rx="1.5"/><path d="M11 4V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1"/></svg> Copy Prompt`;
+      copyPromptBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="9" height="11" rx="1.5"/><path d="M11 4V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1"/></svg> 复制提示词`;
       copyPromptBtn.classList.remove('copied');
     }, 2500);
   });
