@@ -3,203 +3,201 @@
 # 💪 Exercises Dataset
 
 <p>
-  <img src="videos/0025-EIeI8Vf.gif" width="120" alt="barbell bench press" />
-  <img src="videos/0043-qXTaZnJ.gif" width="120" alt="barbell full squat" />
-  <img src="videos/0032-ila4NZS.gif" width="120" alt="barbell deadlift" />
-  <img src="videos/0652-lBDjFxJ.gif" width="120" alt="pull-up" />
-  <img src="videos/0294-NbVPDMW.gif" width="120" alt="dumbbell biceps curl" />
-  <img src="videos/0334-DsgkuIt.gif" width="120" alt="dumbbell lateral raise" />
+  <img src="videos/0025-EIeI8Vf.gif" width="120" alt="杠铃卧推" />
+  <img src="videos/0043-qXTaZnJ.gif" width="120" alt="杠铃全蹲" />
+  <img src="videos/0032-ila4NZS.gif" width="120" alt="杠铃硬拉" />
+  <img src="videos/0652-lBDjFxJ.gif" width="120" alt="引体向上" />
+  <img src="videos/0294-NbVPDMW.gif" width="120" alt="哑铃二头弯举" />
+  <img src="videos/0334-DsgkuIt.gif" width="120" alt="哑铃侧平举" />
 </p>
 
-**A comprehensive, ready-to-use fitness exercise dataset with 1,324 exercises — each with an animation GIF, 180×180 thumbnail image, category, body-part, equipment, target and muscle-group data, and step-by-step instructions in 9 languages (English, Spanish, Italian, Turkish, Russian, Chinese, Hindi, Polish, Korean).**
+**一个开箱即用的健身动作数据集，收录 1,324 个动作--每个动作均配有动画 GIF、180×180 缩略图、分类、部位、器械、目标肌群数据，以及 9 种语言的分步说明（英语、西班牙语、意大利语、土耳其语、俄语、中文、印地语、波兰语、韩语）。**
 
 [![Exercises](https://img.shields.io/badge/Exercises-1324-blue?style=flat-square)](data/exercises.json)
 [![Animation GIFs](https://img.shields.io/badge/Animation%20GIFs-1324-brightgreen?style=flat-square)](videos/)
 [![Thumbnails](https://img.shields.io/badge/Thumbnails-1324-orange?style=flat-square)](images/)
-[![Languages](https://img.shields.io/badge/Languages-9-green?style=flat-square)](#-overview)
+[![Languages](https://img.shields.io/badge/Languages-9-green?style=flat-square)](#-概览)
 [![Mobile App](https://img.shields.io/badge/App-LogPress-111111?style=flat-square&logo=react)](https://github.com/hasaneyldrm/logpress-public)
 [![License](https://img.shields.io/badge/License-MIT%20%2B%20media%20terms-blue?style=flat-square)](LICENSE)
 
 </div>
 
-> **📱 Powers the [LogPress](https://github.com/hasaneyldrm/logpress-public) app** — an AI-assisted workout tracker; this dataset is its exercise data layer. Building your own fitness app? Drop it straight into your backend.
+> **📱 为 [LogPress](https://github.com/hasaneyldrm/logpress-public) 应用提供数据支持** -- 一款 AI 辅助训练记录器；本数据集是其动作数据层。正在开发自己的健身应用？直接接入你的后端即可。
 
 ---
 
-## 📦 Data Source
+## 📦 数据来源
 
-**This repository provides:**
+**本仓库提供：**
 
-- 1,324 exercises with category, body-part, equipment, target and muscle-group data
-- an animation GIF + 180×180 thumbnail for every exercise (media © [Gym visual](https://gymvisual.com/) — see [License](#-license--use))
-- step-by-step instructions in 9 languages (🇬🇧 English, 🇪🇸 Spanish, 🇮🇹 Italian, 🇹🇷 Turkish, 🇷🇺 Russian, 🇨🇳 Chinese, 🇮🇳 Hindi, 🇵🇱 Polish, 🇰🇷 Korean)
-- the interactive browser (`index.html`) and developer setup guide (`setup.html`)
-
----
-
-## 📋 Table of Contents
-
-- [Data Source](#-data-source)
-- [Overview](#-overview)
-- [Interactive Browser & Developer Setup](#-interactive-browser--developer-setup)
-- [File Structure](#-file-structure)
-- [Statistics](#-statistics)
-- [Data Schema](#-data-schema)
-- [Sample Exercises](#-sample-exercises)
-- [Usage Examples](#-usage-examples)
-- [License & Use](#-license--use)
+- 1,324 个动作，含分类、部位、器械、目标肌群与辅助肌群数据
+- 每个动作配有动画 GIF + 180×180 缩略图（媒体版权 © [Gym visual](https://gymvisual.com/) - 详见[许可协议](#-许可与使用)）
+- 9 种语言的分步说明（🇬🇧 英语、🇪🇸 西班牙语、🇮🇹 意大利语、🇹🇷 土耳其语、🇷🇺 俄语、🇨🇳 中文、🇮🇳 印地语、🇵🇱 波兰语、🇰🇷 韩语）
+- 交互式浏览器（`index.html`）和开发者设置指南（`setup.html`）
 
 ---
 
-## 🔍 Overview
+## 📋 目录
 
-This dataset is a curated collection of **1,324 fitness exercises** for educational and research purposes. It covers a wide range of muscle groups, equipment types, and exercise categories — making it ideal for:
+- [数据来源](#-数据来源)
+- [概览](#-概览)
+- [交互式浏览器与开发者设置](#-交互式浏览器与开发者设置)
+- [文件结构](#-文件结构)
+- [统计数据](#-统计数据)
+- [数据结构](#-数据结构)
+- [动作示例](#-动作示例)
+- [使用示例](#-使用示例)
+- [许可与使用](#-许可与使用)
 
-- Building fitness or workout planning applications
-- Machine learning projects involving exercise recognition or recommendation
-- Health and wellness research
-- Educational demonstrations and prototypes
+---
 
-Each exercise entry contains:
+## 🔍 概览
 
-| Field | Description |
+本数据集是一个精选的 **1,324 个健身动作**合集，供教育和研究用途。涵盖广泛的肌群、器械类型和动作分类--适用于：
+
+- 开发健身或训练计划应用
+- 涉及动作识别或推荐的机器学习项目
+- 健康与运动科学研究
+- 教学演示与原型开发
+
+每个动作记录包含：
+
+| 字段 | 说明 |
 |---|---|
-| Unique ID | Numeric identifier (e.g. `"0001"`) |
-| Name | Full descriptive exercise name |
-| Category | Primary muscle group targeted |
-| Target | Specific target muscle |
-| Muscle Group | Supporting / synergist muscles |
-| Equipment | Equipment required (or `body weight` for bodyweight) |
-| Instructions | Step-by-step instructions for each exercise |
-| Available Languages | 🇬🇧 English · 🇪🇸 Spanish · 🇮🇹 Italian · 🇹🇷 Turkish · 🇷🇺 Russian · 🇨🇳 Chinese · 🇮🇳 Hindi · 🇵🇱 Polish · 🇰🇷 Korean |
-| Media | 180×180 thumbnail (`image`) + animation GIF (`gif_url`) per exercise — media © Gym visual, see [License](#-license--use) |
+| 唯一 ID | 数字标识符（如 `"0001"`） |
+| 名称 | 完整的动作名称 |
+| 分类 | 主要训练部位 |
+| 目标 | 具体目标肌肉 |
+| 肌群 | 辅助 / 协同肌群 |
+| 器械 | 所需器械（自重动作为 `body weight`） |
+| 说明 | 每个动作的分步说明 |
+| 支持语言 | 🇬🇧 英语 · 🇪🇸 西班牙语 · 🇮🇹 意大利语 · 🇹🇷 土耳其语 · 🇷🇺 俄语 · 🇨🇳 中文 · 🇮🇳 印地语 · 🇵🇱 波兰语 · 🇰🇷 韩语 |
+| 媒体 | 每个动作的 180×180 缩略图（`image`）+ 动画 GIF（`gif_url`）- 媒体版权 © Gym visual，详见[许可协议](#-许可与使用) |
+
+---
+## 🖥️ 交互式浏览器与开发者设置
+
+本仓库包含两个开箱即用的 HTML 工具--无需服务器，浏览器直接打开即可。
+
+> **提示：** 浏览器会展示每个动作的 180×180 缩略图和动画 GIF，以及元数据和说明。
+
+### `index.html` - 动作浏览器
+
+一个完全前端实现的动作浏览器，功能包括：
+- 对全部 1,324 个动作的实时搜索
+- 按分类、器械、目标肌群筛选
+- 无限滚动网格
+- 点击任意卡片查看完整详情和说明（支持英语、西班牙语、意大利语、土耳其语、俄语、中文、印地语、波兰语、韩语）
+
+### `setup.html` - 开发者设置指南
+
+将数据集集成到你自己的应用的分步指南：
+
+1. **数据库设置** - 提供 SQL Server、PostgreSQL、MySQL、SQLite 的 `CREATE TABLE` 语句。可在浏览器中直接生成包含全部 1,324 条 INSERT 语句的 `.sql` 文件。
+2. **API 集成** - 提供 **JavaScript、Python、C#、Java、PHP、Go、cURL** 的客户端代码示例，展示如何调用你的后端 API。输入你的基础 URL，所有示例实时更新。
+3. **AI 助手** - 一段结构化提示词（可选择你的框架和数据库），粘贴到 ChatGPT、Claude、Gemini 中即可一次性生成完整的、生产级 REST API。支持 Express.js、FastAPI、ASP.NET Core、Spring Boot、Laravel、Gin。
 
 ---
 
-## 🖥️ Interactive Browser & Developer Setup
-
-This repository includes two ready-to-use HTML tools — no server required, just open in a browser.
-
-> **Note:** the browser displays each exercise's 180×180 thumbnail and animation GIF alongside its metadata and instructions.
-
-### `index.html` — Exercise Browser
-
-A fully client-side exercise explorer with:
-- Live search across all 1,324 exercises
-- Filter by category, equipment, and target muscle
-- Infinite scroll grid
-- Click any card to see full details and instructions in English, Spanish, Italian, Turkish, Russian, Chinese, Hindi, Polish, or Korean
-
-### `setup.html` — Developer Setup Guide
-
-A step-by-step guide for integrating the dataset into your own application:
-
-1. **Database Setup** — `CREATE TABLE` SQL for SQL Server, PostgreSQL, MySQL, and SQLite. Generate a ready-to-run `.sql` file with all 1,324 INSERT statements, built entirely in your browser.
-2. **API Integration** — Copy-paste client code in **JavaScript, Python, C#, Java, PHP, Go, and cURL** showing how to call your backend API. Enter your base URL and all examples update live.
-3. **Ask Your LLM** — A structured prompt (choose your framework + database) that you can paste into ChatGPT, Claude, or Gemini to generate a complete, production-ready REST API in one shot. Supports Express.js, FastAPI, ASP.NET Core, Spring Boot, Laravel, and Gin.
-
----
-
-## 📂 File Structure
+## 📂 文件结构
 
 ```
 exercises-dataset/
 ├── data/
-│   ├── exercises.json        # Full dataset — 1,324 exercise records (JSON array)
-│   └── exercises.schema.json # JSON Schema (2020-12) describing every record
-├── images/                  # 1,324 × 180×180 thumbnails  (© Gym visual)
-├── videos/                  # 1,324 × 180×180 animation GIFs  (© Gym visual)
-├── index.html               # Interactive exercise browser (client-side, no server needed)
-├── setup.html               # Developer setup guide (DB import + API integration)
-├── NOTICE.md                # Media attribution & license terms
+│   ├── exercises.json        # 完整数据集 - 1,324 条动作记录（JSON 数组）
+│   └── exercises.schema.json # JSON Schema (2020-12) 描述每条记录
+├── images/                  # 1,324 张 180×180 缩略图  (© Gym visual)
+├── videos/                  # 1,324 个 180×180 动画 GIF  (© Gym visual)
+├── index.html               # 交互式动作浏览器（纯前端，无需服务器）
+├── setup.html               # 开发者设置指南（数据库导入 + API 集成）
+├── NOTICE.md                # 媒体版权归属与许可条款
 └── README.md
 ```
 
-### Key Files
+### 核心文件
 
-- **`data/exercises.json`** — The primary data file. A JSON array of 1,324 exercise objects with all metadata. `image` / `gif_url` point to the local 180×180 assets, and each record carries an `attribution` field; `media_id` holds the original media reference id.
-- **`data/exercises.schema.json`** — A [JSON Schema](https://json-schema.org/) (Draft 2020-12) that formally describes every field, its type and constraints. Use it to validate the dataset or your own additions with any standard JSON Schema validator.
-- **`images/`, `videos/`** — 180×180 thumbnails and animation GIFs (© [Gym visual](https://gymvisual.com/), used with permission).
-- **`index.html`** — Standalone exercise browser. Open directly in any modern browser.
-- **`setup.html`** — Developer guide for DB setup, API integration, and LLM-assisted backend generation.
-- **`LICENSE`, `NOTICE.md`** — MIT (code/data) + the Gym visual media terms.
-
----
-
-## 📊 Statistics
-
-| Metric | Count |
-|---|---|
-| Total Exercises | **1,324** |
-| Instruction Languages | **9** |
-
-### Exercises by Body Part
-
-| Body Part | Exercise Count |
-|---|---|
-| Upper Arms | 292 |
-| Upper Legs | 227 |
-| Back | 203 |
-| Waist | 169 |
-| Chest | 163 |
-| Shoulders | 143 |
-| Lower Legs | 59 |
-| Lower Arms | 37 |
-| Cardio | 29 |
-| Neck | 2 |
-
-### Exercises by Equipment
-
-| Equipment | Exercise Count |
-|---|---|
-| Body Weight | 325 |
-| Dumbbell | 294 |
-| Cable | 157 |
-| Barbell | 154 |
-| Leverage Machine | 81 |
-| Band | 54 |
-| Smith Machine | 48 |
-| Kettlebell | 41 |
-| Weighted | 36 |
-| Stability Ball | 28 |
-| EZ Barbell | 23 |
-| Other | 83 |
-
-> **Note:** ~25% of exercises require no equipment at all — great for at-home workout applications.
+- **`data/exercises.json`** - 主数据文件。一个包含 1,324 个动作对象的 JSON 数组，含全部元数据。`image` / `gif_url` 指向本地 180×180 资源，每条记录带有 `attribution` 字段；`media_id` 保存原始媒体引用 ID。
+- **`data/exercises.schema.json`** - [JSON Schema](https://json-schema.org/)（Draft 2020-12），正式描述每个字段的类型和约束。可用于验证数据集或你自行添加的数据。
+- **`images/`, `videos/`** - 180×180 缩略图和动画 GIF（© [Gym visual](https://gymvisual.com/)，经授权使用）。
+- **`index.html`** - 独立动作浏览器。在任何现代浏览器中直接打开。
+- **`setup.html`** - 开发者指南，包含数据库设置、API 集成和 AI 辅助后端生成。
+- **`LICENSE`, `NOTICE.md`** - MIT（代码/数据）+ Gym visual 媒体使用条款。
 
 ---
 
-## 🗂️ Data Schema
+## 📊 统计数据
 
-Each record in `data/exercises.json` follows this structure. A machine-readable [JSON Schema](data/exercises.schema.json) is also provided for validation.
+| 指标 | 数量 |
+|---|---|
+| 动作总数 | **1,324** |
+| 说明语言数 | **9** |
 
-| Field | Type | Description |
+### 按部位统计
+
+| 部位 | 动作数量 |
+|---|---|
+| 上臂 | 292 |
+| 大腿 | 227 |
+| 背部 | 203 |
+| 腰部 | 169 |
+| 胸部 | 163 |
+| 肩部 | 143 |
+| 小腿 | 59 |
+| 前臂 | 37 |
+| 有氧 | 29 |
+| 颈部 | 2 |
+
+### 按器械统计
+
+| 器械 | 动作数量 |
+|---|---|
+| 自重 | 325 |
+| 哑铃 | 294 |
+| 绳索 | 157 |
+| 杠铃 | 154 |
+| 杠杆器械 | 81 |
+| 弹力带 | 54 |
+| 史密斯机 | 48 |
+| 壶铃 | 41 |
+| 负重 | 36 |
+| 稳定球 | 28 |
+| EZ杠铃 | 23 |
+| 其他 | 83 |
+
+> **提示：** 约 25% 的动作不需要任何器械--非常适合居家训练应用。
+
+---
+## 🗂️ 数据结构
+
+`data/exercises.json` 中的每条记录遵循以下结构。同时提供了机器可读的 [JSON Schema](data/exercises.schema.json) 用于验证。
+
+| 字段 | 类型 | 说明 |
 |---|---|---|
-| `id` | `string` | Unique numeric identifier (e.g. `"0001"`) |
-| `name` | `string` | Full exercise name (e.g. `"3/4 Sit-up"`) |
-| `category` | `string` | Body part category (e.g. `"upper arms"`, `"chest"`, `"back"`) |
-| `body_part` | `string` | Same as `category` — body part targeted |
-| `equipment` | `string` | Required equipment (e.g. `"dumbbell"`, `"body weight"`) |
-| `instructions.en` | `string` | Full step-by-step instructions in English |
-| `instructions.es` | `string` | Full step-by-step instructions in Spanish |
-| `instructions.it` | `string` | Full step-by-step instructions in Italian |
-| `instructions.tr` | `string` | Full step-by-step instructions in Turkish |
-| `instructions.ru` | `string` | Full step-by-step instructions in Russian |
-| `instructions.zh` | `string` | Full step-by-step instructions in Chinese |
-| `instructions.hi` | `string` | Full step-by-step instructions in Hindi |
-| `instructions.pl` | `string` | Full step-by-step instructions in Polish |
-| `instructions.ko` | `string` | Full step-by-step instructions in Korean |
-| `instruction_steps.<lang>` | `array[string]` | Same instructions split into an ordered array of steps, per language (`en`, `es`, `it`, `tr`, `ru`, `zh`, `hi`, `pl`, `ko`) |
-| `muscle_group` | `string` | Primary synergist muscle group |
-| `secondary_muscles` | `array[string]` | Additional muscles involved |
-| `target` | `string` | Primary target muscle (e.g. `"biceps"`, `"pectoralis major"`) |
-| `media_id` | `string` | Original media reference id (e.g. `"2gPfomN"`) |
-| `image` | `string` | Path to the 180×180 thumbnail (e.g. `"images/0001-2gPfomN.jpg"`) |
-| `gif_url` | `string` | Path to the 180×180 animation GIF (e.g. `"videos/0001-2gPfomN.gif"`) |
-| `attribution` | `string` | Media copyright notice — `"© Gym visual — https://gymvisual.com/"` |
-| `created_at` | `string` | ISO 8601 timestamp of record creation |
+| `id` | `string` | 唯一数字标识符（如 `"0001"`） |
+| `name` | `string` | 完整动作名称（如 `"3/4 Sit-up"`） |
+| `category` | `string` | 部位分类（如 `"upper arms"`、`"chest"`、`"back"`） |
+| `body_part` | `string` | 同 `category` - 目标部位 |
+| `equipment` | `string` | 所需器械（如 `"dumbbell"`、`"body weight"`） |
+| `instructions.en` | `string` | 英语分步说明 |
+| `instructions.es` | `string` | 西班牙语分步说明 |
+| `instructions.it` | `string` | 意大利语分步说明 |
+| `instructions.tr` | `string` | 土耳其语分步说明 |
+| `instructions.ru` | `string` | 俄语分步说明 |
+| `instructions.zh` | `string` | 中文分步说明 |
+| `instructions.hi` | `string` | 印地语分步说明 |
+| `instructions.pl` | `string` | 波兰语分步说明 |
+| `instructions.ko` | `string` | 韩语分步说明 |
+| `instruction_steps.<lang>` | `array[string]` | 同上说明按步骤拆分的有序数组，每种语言一组（`en`, `es`, `it`, `tr`, `ru`, `zh`, `hi`, `pl`, `ko`） |
+| `muscle_group` | `string` | 主要协同肌群 |
+| `secondary_muscles` | `array[string]` | 其他参与肌群 |
+| `target` | `string` | 主要目标肌肉（如 `"biceps"`、`"pectoralis major"`） |
+| `media_id` | `string` | 原始媒体引用 ID（如 `"2gPfomN"`） |
+| `image` | `string` | 180×180 缩略图路径（如 `"images/0001-2gPfomN.jpg"`） |
+| `gif_url` | `string` | 180×180 动画 GIF 路径（如 `"videos/0001-2gPfomN.gif"`） |
+| `attribution` | `string` | 媒体版权声明 - `"© Gym visual - https://gymvisual.com/"` |
+| `created_at` | `string` | 记录创建的 ISO 8601 时间戳 |
 
-### Sample Record
+### 示例记录
 
 ```json
 {
@@ -225,82 +223,80 @@ Each record in `data/exercises.json` follows this structure. A machine-readable 
   "media_id": "2gPfomN",
   "image": "images/0001-2gPfomN.jpg",
   "gif_url": "videos/0001-2gPfomN.gif",
-  "attribution": "© Gym visual — https://gymvisual.com/",
+  "attribution": "© Gym visual - https://gymvisual.com/",
   "created_at": "2026-03-18T12:31:32.854798+00:00"
 }
 ```
 
 ---
+## 🎬 动作示例
 
-## 🎬 Sample Exercises
+> 每个示例附带 180×180 缩略图（`image`）和动画 GIF（`gif_url`），© [Gym visual](https://gymvisual.com/)。
 
-> Each example ships a 180×180 thumbnail (`image`) and animation GIF (`gif_url`), © [Gym visual](https://gymvisual.com/).
+### 1 - 杠铃卧推 · 胸部
 
-### 1 — Barbell Bench Press · Chest
+<img src="videos/0025-EIeI8Vf.gif" width="150" align="right" alt="杠铃卧推" />
 
-<img src="videos/0025-EIeI8Vf.gif" width="150" align="right" alt="Barbell Bench Press" />
+> **器械：** 杠铃 · **目标：** 胸肌 · **辅助：** 肱三头肌、三角肌 · **媒体 ID：** `EIeI8Vf`
 
-> **Equipment:** Barbell · **Target:** Pectorals · **Secondary:** Triceps, Shoulders · **Media ID:** `EIeI8Vf`
+杠铃卧推是胸部训练的基石，也是力量举"三大项"之一。仰卧在平板上，将负重杠铃下放至胸部，然后爆发性推起。它同时募集胸肌、肱三头肌和前三角肌，是发展上肢推力和胸肌围度最有效的动作。
 
-The Barbell Bench Press is the cornerstone of chest training and one of the "Big Three" powerlifting movements. Lying flat on a bench, you lower a loaded barbell to your chest and press it back up explosively. It simultaneously recruits the pectorals, triceps, and anterior deltoids, making it the single most effective exercise for upper body pushing strength and chest mass development.
+**要点：** 起杠前先收缩并下沉肩胛骨。双脚平踩地面，腰部自然拱起，握距与肩同宽。控制下放至胸部中段，通过脚跟发力推起。
 
-**Key cues:** Retract and depress your scapulae before unracking. Keep your feet flat on the floor, arch your lower back naturally, and maintain a shoulder-width grip. Lower the bar under control to mid-chest and drive up through the heels.
+### 2 - 杠铃硬拉 · 大腿 / 背部
 
-### 2 — Barbell Deadlift · Upper Legs / Back
+<img src="videos/0032-ila4NZS.gif" width="150" align="right" alt="杠铃硬拉" />
 
-<img src="videos/0032-ila4NZS.gif" width="150" align="right" alt="Barbell Deadlift" />
+> **器械：** 杠铃 · **目标：** 臀肌 · **辅助：** 腘绳肌、下背部 · **媒体 ID：** `ila4NZS`
 
-> **Equipment:** Barbell · **Target:** Glutes · **Secondary:** Hamstrings, Lower Back · **Media ID:** `ila4NZS`
+杠铃硬拉被广泛认为是终极全身力量动作。它几乎募集后链的每一块主要肌肉--臀肌、腘绳肌和下背部--同时对上背部、斜方肌和握力有很高要求。正确的脊柱排列和核心支撑技术对表现和安全都至关重要。
 
-The Barbell Deadlift is widely regarded as the ultimate full-body strength exercise. It engages virtually every major muscle in the posterior chain — glutes, hamstrings, and lower back — while also demanding significant contribution from the upper back, traps, and grip. Proper spinal alignment and bracing technique are critical for both performance and safety.
+**要点：** 杠铃置于脚掌中部正上方。屈髋俯身，握距略宽于腿，核心绷紧，整个拉起过程中杠铃贴紧胫骨。蹬地发力，顶部通过收缩臀肌完全伸展髋部。
 
-**Key cues:** Set up with the bar over your mid-foot. Hinge at the hips, grip just outside your legs, brace your core hard, and keep the bar in contact with your shins throughout the lift. Drive the floor away, lock out at the top by squeezing glutes and extending hips fully.
+### 3 - 杠铃全蹲 · 大腿
 
-### 3 — Barbell Full Squat · Upper Legs
+<img src="videos/0043-qXTaZnJ.gif" width="150" align="right" alt="杠铃全蹲" />
 
-<img src="videos/0043-qXTaZnJ.gif" width="150" align="right" alt="Barbell Full Squat" />
+> **器械：** 杠铃 · **目标：** 臀肌 · **辅助：** 股四头肌、腘绳肌、小腿、核心 · **媒体 ID：** `qXTaZnJ`
 
-> **Equipment:** Barbell · **Target:** Glutes · **Secondary:** Quadriceps, Hamstrings, Calves, Core · **Media ID:** `qXTaZnJ`
+常被称为"动作之王"的杠铃全蹲，需要整个下肢和核心的协调发力。蹲至大腿低于水平面能最大化臀肌和腘绳肌的激活，是几乎所有力量和增肌计划的基础。
 
-Often called "the king of all exercises," the Barbell Full Squat demands coordinated strength across the entire lower body and core. Breaking parallel maximizes glute and hamstring activation compared to partial squats. It is the foundation of nearly every strength and hypertrophy program.
+**要点：** 杠铃放在上斜方肌（高杠）或后三角肌（低杠）上。下蹲前先支撑核心，膝盖与脚尖方向一致，臀部后坐，蹲至大腿低于水平面。通过全脚掌发力站起。
 
-**Key cues:** Bar on upper traps (high bar) or rear deltoids (low bar). Brace your core before descent, push knees out in line with toes, sit into your hips, and descend until your thighs pass parallel to the floor. Drive through the whole foot to stand.
+### 4 - 哑铃二头弯举 · 上臂
 
-### 4 — Dumbbell Biceps Curl · Upper Arms
+<img src="videos/0294-NbVPDMW.gif" width="150" align="right" alt="哑铃二头弯举" />
 
-<img src="videos/0294-NbVPDMW.gif" width="150" align="right" alt="Dumbbell Biceps Curl" />
+> **器械：** 哑铃 · **目标：** 肱二头肌 · **辅助：** 前臂 · **媒体 ID：** `NbVPDMW`
 
-> **Equipment:** Dumbbell · **Target:** Biceps · **Secondary:** Forearms · **Media ID:** `NbVPDMW`
+哑铃二头弯举是最广为人知的手臂孤立动作。两侧独立训练有助于发现和纠正肢体间的力量不平衡。旋前（掌心向上）握法能在动作顶点最大化肱二头肌的收缩。
 
-The Dumbbell Biceps Curl is the most recognized isolation exercise for the arms. Training each side independently helps identify and correct strength imbalances between limbs. The supinated (palms-up) grip maximizes biceps contraction at the top of the movement.
+**要点：** 站直，肘部紧贴体侧。上举时旋腕至掌心向上，顶部收缩，控制下放，避免借力摆动。不要用肩部或下背部产生惯性。
 
-**Key cues:** Stand tall with elbows pinned to your sides. Supinate your wrists as you curl up, squeeze at the top, and lower under control without swinging. Avoid using momentum from the shoulders or lower back.
+### 5 - 引体向上 · 背部
 
-### 5 — Pull-up · Back
+<img src="videos/0652-lBDjFxJ.gif" width="150" align="right" alt="引体向上" />
 
-<img src="videos/0652-lBDjFxJ.gif" width="150" align="right" alt="Pull-up" />
+> **器械：** 自重 · **目标：** 背阔肌 · **辅助：** 肱二头肌、前臂 · **媒体 ID：** `lBDjFxJ`
 
-> **Equipment:** Body Weight · **Target:** Lats · **Secondary:** Biceps, Forearms · **Media ID:** `lBDjFxJ`
+引体向上是上肢拉力的黄金标准自重动作。主要发展背阔肌--打造倒三角体型--同时大量涉及肱二头肌、后三角肌和核心稳定肌群。可从初级（弹力带辅助）到高级（负重）进行进阶。
 
-The Pull-up is the gold standard bodyweight exercise for upper body pulling strength. It primarily develops the latissimus dorsi — creating the coveted V-taper — while heavily involving the biceps, rear deltoids, and core stabilizers. It scales from beginner (band-assisted) to advanced (weighted).
+**要点：** 正握悬垂，握距与肩同宽或略宽。先下沉肩胛骨启动背阔肌，然后将胸部拉向单杠。每次动作之间完全放低，保持完整动作幅度。
 
-**Key cues:** Dead hang from an overhand grip, shoulder-width or slightly wider. Initiate with your lats by depressing your shoulder blades, then pull your chest toward the bar. Lower fully between reps to maintain range of motion.
+### 6 - 哑铃侧平举 · 肩部
 
-### 6 — Dumbbell Lateral Raise · Shoulders
+<img src="videos/0334-DsgkuIt.gif" width="150" align="right" alt="哑铃侧平举" />
 
-<img src="videos/0334-DsgkuIt.gif" width="150" align="right" alt="Dumbbell Lateral Raise" />
+> **器械：** 哑铃 · **目标：** 三角肌 · **辅助：** 斜方肌 · **媒体 ID：** `DsgkuIt`
 
-> **Equipment:** Dumbbell · **Target:** Delts · **Secondary:** Traps · **Media ID:** `DsgkuIt`
+哑铃侧平举是增加肩宽的首选孤立动作。直接刺激三角肌中束，这是塑造宽肩外观的关键。控制节奏和严格姿势远比重量重要。
 
-The Dumbbell Lateral Raise is the go-to isolation exercise for building shoulder width. It directly targets the lateral (middle) head of the deltoid, which is responsible for the broad-shouldered look. Controlled tempo and strict form matter far more than load.
-
-**Key cues:** Stand with a slight bend in your elbows throughout. Raise the dumbbells out to the sides until your arms are parallel to the floor — no higher. Lead with your elbows, not your wrists. Lower slowly under control to maximize time under tension.
+**要点：** 全程保持肘部微屈。向两侧平举哑铃至手臂与地面平行--不要更高。以肘部引导，而非手腕。缓慢控制下放，最大化肌肉紧张时间。
 
 ---
+## 🚀 使用示例
 
-## 🚀 Usage Examples
-
-### Python — Load and Filter
+### Python - 加载与筛选
 
 ```python
 import json
@@ -335,7 +331,7 @@ print(ex["instructions"]["zh"])  # Chinese
 print(ex["instructions"]["hi"])  # Hindi
 ```
 
-### Python — Load with Pandas
+### Python - 使用 Pandas 加载
 
 ```python
 import json
@@ -386,7 +382,7 @@ console.log(ex.instructions.pl); // Polish
 console.log(ex.instructions.ko); // Korean
 ```
 
-### TypeScript — Type-safe Usage
+### TypeScript - 类型安全用法
 
 ```typescript
 interface Exercise {
@@ -424,11 +420,10 @@ console.log("First 6 exercises:", randomWorkout.map(e => e.name));
 ```
 
 ---
+## 📄 许可与使用
 
-## 📄 License & Use
+本仓库是一个**开发者设置向导和结构化动作数据集**--包含动作元数据、多语言说明翻译，以及 180×180 动作媒体资源。
 
-This repository is a **developer setup wizard and structured exercise dataset** — exercise metadata, multilingual instruction translations, and 180×180 exercise media.
-
-- **Code, tooling, dataset structure, and instruction text** are released under the [MIT License](LICENSE).
-- **Exercise media (images & GIFs) is © [Gym visual](https://gymvisual.com/)** and redistributed here **with permission**, at 180×180 resolution — see [`NOTICE.md`](NOTICE.md) and the media exception in [`LICENSE`](LICENSE). Keep the `© Gym visual — https://gymvisual.com/` attribution intact. Reuse is governed by [Gym visual's Terms & Conditions](https://gymvisual.com/content/3-terms-and-conditions-of-use); obtain your own license there before reusing the media.
-- This repository does **not** claim ownership of the underlying exercise content or media.
+- **代码、工具、数据集结构和说明文本**基于 [MIT 许可证](LICENSE) 发布。
+- **动作媒体资源（图片和 GIF）版权归 [Gym visual](https://gymvisual.com/) 所有**，经授权以 180×180 分辨率在本仓库中分发--详见 [`NOTICE.md`](NOTICE.md) 和 [`LICENSE`](LICENSE) 中的媒体例外条款。请保留 `© Gym visual - https://gymvisual.com/` 版权声明。媒体资源的再使用受 [Gym visual 使用条款](https://gymvisual.com/content/3-terms-and-conditions-of-use) 约束，再使用前请在该网站获取自己的授权。
+- 本仓库**不**主张对底层动作内容或媒体资源拥有所有权。
