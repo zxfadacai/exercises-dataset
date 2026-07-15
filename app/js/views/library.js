@@ -1,4 +1,4 @@
-﻿// 鍔ㄤ綔搴撹鍥?
+// 动作库视图
 
 import { filter, getFilterOptions, getBodyPartCN, getEquipmentCN, getTargetCN, getDifficultyCN, assetPath } from "../exercise-data.js";
 import { showDetail } from "./detail.js";
@@ -10,16 +10,16 @@ export function renderLibrary(container) {
 
   container.innerHTML = `
     <div class="page-header">
-      <div class="page-title">鍔ㄤ綔搴?/div>
-      <div class="page-subtitle">1324涓姩浣滐紝鎼滅储绛涢€?/div>
+      <div class="page-title">动作库</div>
+      <div class="page-subtitle">1324个动作，搜索筛选</div>
     </div>
     <div class="search-bar">
       ${ICONS.search}
-      <input type="text" id="libSearch" placeholder="鎼滅储鍔ㄤ綔鍚嶇О銆侀儴浣?..">
+      <input type="text" id="libSearch" placeholder="搜索动作名称、部位...">
     </div>
     <div class="filter-chips" id="libChips">
-      <button class="chip active" data-filter="all">鍏ㄩ儴</button>
-      <button class="chip" data-filter="home">灞呭鍙敤</button>
+      <button class="chip active" data-filter="all">全部</button>
+      <button class="chip" data-filter="home">居家可用</button>
       <span style="width:1px;background:var(--border);margin:4px 0;flex-shrink:0"></span>
       ${opts.bodyParts.map(bp => `<button class="chip" data-filter="bodyPart" data-value="${bp}">${getBodyPartCN(bp)}</button>`).join("")}
     </div>
@@ -30,13 +30,13 @@ export function renderLibrary(container) {
     const results = filter(state);
     const grid = container.querySelector("#libGrid");
     if (results.length === 0) {
-      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${ICONS.empty}<p>娌℃湁鎵惧埌鍖归厤鐨勫姩浣?/p></div>`;
+      grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">${ICONS.empty}<p>没有找到匹配的动作</p></div>`;
       return;
     }
     grid.innerHTML = results.slice(0, 100).map(ex => `
       <div class="exercise-card" data-id="${ex.id}">
         <div class="thumb">
-          <img src="${assetPath(ex.image)}"  alt="${ex.name}">
+          <img src="${assetPath(ex.image)}" loading="lazy" alt="${ex.name}">
           <div class="thumb-overlay">
             <div class="thumb-name">${ex.name}</div>
             <div class="thumb-tag">${getBodyPartCN(ex.body_part)}</div>
@@ -74,4 +74,3 @@ export function renderLibrary(container) {
 
   updateGrid();
 }
-
