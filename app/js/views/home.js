@@ -6,6 +6,15 @@ import { getAll, assetPath } from "../exercise-data.js";
 import { ICONS } from "../app.js";
 import { renderPlanView } from "./planner.js";
 
+function getGreeting() {
+  const h = new Date().getHours();
+  if (h >= 6 && h < 12) return "早上好";
+  if (h >= 12 && h < 14) return "中午好";
+  if (h >= 14 && h < 18) return "下午好";
+  if (h >= 18 && h < 22) return "晚上好";
+  return "夜深了";
+}
+
 function renderProgressRing(percent, color, size = 80) {
   const strokeWidth = 6;
   const radius = (size - strokeWidth) / 2;
@@ -37,12 +46,10 @@ export async function renderHome(container, switchTab) {
     <div style="padding: 20px 20px 8px">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px">
         <div>
-          <div style="font-size: 14px; color: var(--muted)">早上好</div>
+          <div style="font-size: 14px; color: var(--muted)">${getGreeting()}</div>
           <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em">开始训练吧</div>
         </div>
-        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; border: 1px solid var(--accent-glow)">
-          ${ICONS.dumbbell}
-        </div>
+
       </div>
 
       <div class="glass-card" style="border-radius: var(--r-lg); padding: 20px; margin-bottom: 16px">
@@ -151,4 +158,7 @@ export async function renderHome(container, switchTab) {
     btn.addEventListener("click", () => switchTab(btn.dataset.action));
   });
 }
+
+
+
 
