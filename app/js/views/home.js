@@ -37,8 +37,8 @@ export async function renderHome(container, switchTab) {
     <div style="padding: 20px 20px 8px">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px">
         <div>
-          <div style="font-size: 14px; color: var(--muted)">Good Morning</div>
-          <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em">Let's Workout</div>
+          <div style="font-size: 14px; color: var(--muted)">早上好</div>
+          <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em">开始训练吧</div>
         </div>
         <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; border: 1px solid var(--accent-glow)">
           ${ICONS.dumbbell}
@@ -47,7 +47,7 @@ export async function renderHome(container, switchTab) {
 
       <div class="glass-card" style="border-radius: var(--r-lg); padding: 20px; margin-bottom: 16px">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px">
-          <div style="font-size: 16px; font-weight: 700">Today's Progress</div>
+          <div style="font-size: 16px; font-weight: 700">今日进度</div>
           <div style="display: flex; align-items: center; gap: 6px; color: var(--accent); font-size: 12px; font-weight: 600">
             <span style="width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite"></span>
             <span>Active</span>
@@ -59,21 +59,21 @@ export async function renderHome(container, switchTab) {
               ${renderProgressRing(Math.min(stats.thisWeek * 25, 100), "#00FF87", 70)}
               <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800">${stats.thisWeek}</div>
             </div>
-            <div style="font-size: 11px; color: var(--muted); margin-top: 6px">Workouts</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 6px">训练次数</div>
           </div>
           <div style="text-align: center">
             <div style="position: relative; display: inline-block">
               ${renderProgressRing(Math.min(stats.totalMinutes, 100), "#60EFFF", 70)}
               <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800">${stats.totalMinutes}</div>
             </div>
-            <div style="font-size: 11px; color: var(--muted); margin-top: 6px">Minutes</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 6px">运动分钟</div>
           </div>
           <div style="text-align: center">
             <div style="position: relative; display: inline-block">
               ${renderProgressRing(Math.min(stats.totalSessions * 5, 100), "#FF4757", 70)}
               <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800">${stats.totalSessions}</div>
             </div>
-            <div style="font-size: 11px; color: var(--muted); margin-top: 6px">Sessions</div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 6px">总组数</div>
           </div>
         </div>
       </div>
@@ -151,3 +151,4 @@ export async function renderHome(container, switchTab) {
     btn.addEventListener("click", () => switchTab(btn.dataset.action));
   });
 }
+
