@@ -1,6 +1,7 @@
 // 个人中心视图
 
 import { getStats, getRecords, getSetting, setSetting } from "../store.js";
+import { getAll } from "../exercise-data.js";
 import { ICONS } from "../app.js";
 
 export async function renderProfile(container) {
@@ -52,7 +53,7 @@ export async function renderProfile(container) {
       </button>
     </div>
     <div style="padding:24px 16px;text-align:center;font-size:12px;color:var(--dim)">
-      健身助手 v1.0<br>动作数据 1324条 | MIT License
+      健身助手 v1.0<br>动作数据 ${getAll().length}条 | MIT License
     </div>
   `;
 

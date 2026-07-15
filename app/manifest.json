@@ -1,7 +1,7 @@
 {
   "name": "健身助手 - 居家训练计划",
   "short_name": "健身助手",
-  "description": "1324个动作库 + 智能训练计划生成器，居家锻炼不求人",
+  "description": "动作库 + 智能训练计划生成器，居家锻炼不求人",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",

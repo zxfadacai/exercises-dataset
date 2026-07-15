@@ -1,5 +1,5 @@
 // Service Worker -- 离线缓存策略
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const STATIC_CACHE = `fit-static-${CACHE_VERSION}`;
 const DATA_CACHE = `fit-data-${CACHE_VERSION}`;
 const IMG_CACHE = `fit-img-${CACHE_VERSION}`;
@@ -13,6 +13,12 @@ const STATIC_ASSETS = [
   "./js/store.js",
   "./js/exercise-data.js",
   "./js/plan-engine.js",
+  "./js/views/home.js",
+  "./js/views/library.js",
+  "./js/views/planner.js",
+  "./js/views/profile.js",
+  "./js/views/trainer.js",
+  "./js/views/detail.js",
   "./data/exercises-zh.min.json",
 ];
 

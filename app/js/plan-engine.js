@@ -215,6 +215,8 @@ export function generatePlan(params) {
         restLabel: goalCfg.restLabel,
         steps: ex.steps,
       }));
+      // 兜底重新选了动作，同步重算预估时长
+      plan.estimatedMinutes = Math.ceil((plan.exercises.length * perExerciseTime) / 60);
     }
   }
 

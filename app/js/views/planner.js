@@ -159,9 +159,9 @@ export function renderPlanView(container, plan, params) {
   result.querySelector("#savePlanBtn").addEventListener("click", async () => {
     const btn = result.querySelector("#savePlanBtn");
     btn.disabled = true;
-    btn.textContent = "???...";
+    btn.textContent = "保存中...";
     await savePlan(plan);
-    btn.textContent = "???";
+    btn.textContent = "已保存";
     btn.style.borderColor = "var(--accent)";
     btn.style.color = "var(--accent)";
   });
