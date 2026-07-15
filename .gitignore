@@ -4,8 +4,10 @@
 .venv/
 *.zip
 
-# Claude Code local settings (do not publish)
+# Claude Code / Codex local settings (do not publish)
 .claude/
+.agents/
+.codex/
 
 # Local backup / temp files
 *.bak
