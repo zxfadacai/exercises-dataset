@@ -1,87 +1,86 @@
-// 动作数据加载与查询
-
+﻿// 鍔ㄤ綔鏁版嵁鍔犺浇涓庢煡璇?
 let _data = null;
 let _filtered = [];
 
-// 器材中文映射
+// 鍣ㄦ潗涓枃鏄犲皠
 const EQUIPMENT_CN = {
-  "body weight": "自重",
-  "dumbbell": "哑铃",
-  "barbell": "杠铃",
-  "cable": "绳索",
-  "kettlebell": "壶铃",
-  "band": "弹力带",
-  "resistance band": "弹力带",
-  "leverage machine": "器械",
-  "smith machine": "史密斯",
-  "stability ball": "瑜伽球",
-  "medicine ball": "药球",
-  "ez barbell": "EZ杆",
-  "foam roll": "泡沫轴",
-  "roller": "泡沫轴",
-  "rope": "跳绳",
-  "bosu ball": "BOSU球",
-  "wheel roller": "健腹轮",
-  "weighted": "负重",
-  "assisted": "辅助",
-  "sled machine": "雪橇机",
-  "olympic barbell": "奥运杠铃",
-  "trap bar": "六角杠",
-  "tire": "轮胎",
-  "stepmill machine": "台阶机",
-  "elliptical machine": "椭圆机",
-  "hammer": "锤子",
-  "skierg machine": "滑雪机",
-  "stationary bike": "动感单车",
-  "upper body ergometer": "上肢测功计",
+  "body weight": "鑷噸",
+  "dumbbell": "鍝戦搩",
+  "barbell": "鏉犻搩",
+  "cable": "缁崇储",
+  "kettlebell": "澹堕搩",
+  "band": "寮瑰姏甯?,
+  "resistance band": "寮瑰姏甯?,
+  "leverage machine": "鍣ㄦ",
+  "smith machine": "鍙插瘑鏂?,
+  "stability ball": "鐟滀冀鐞?,
+  "medicine ball": "鑽悆",
+  "ez barbell": "EZ鏉?,
+  "foam roll": "娉℃搏杞?,
+  "roller": "娉℃搏杞?,
+  "rope": "璺崇怀",
+  "bosu ball": "BOSU鐞?,
+  "wheel roller": "鍋ヨ吂杞?,
+  "weighted": "璐熼噸",
+  "assisted": "杈呭姪",
+  "sled machine": "闆﹪鏈?,
+  "olympic barbell": "濂ヨ繍鏉犻搩",
+  "trap bar": "鍏鏉?,
+  "tire": "杞儙",
+  "stepmill machine": "鍙伴樁鏈?,
+  "elliptical machine": "妞渾鏈?,
+  "hammer": "閿ゅ瓙",
+  "skierg machine": "婊戦洩鏈?,
+  "stationary bike": "鍔ㄦ劅鍗曡溅",
+  "upper body ergometer": "涓婅偄娴嬪姛璁?,
 };
 
-// 部位中文映射
+// 閮ㄤ綅涓枃鏄犲皠
 const BODYPART_CN = {
-  "back": "背部",
-  "cardio": "有氧",
-  "chest": "胸部",
-  "lower arms": "前臂",
-  "lower legs": "小腿",
-  "neck": "颈部",
-  "shoulders": "肩部",
-  "upper arms": "上臂",
-  "upper legs": "大腿",
-  "waist": "核心",
+  "back": "鑳岄儴",
+  "cardio": "鏈夋哀",
+  "chest": "鑳搁儴",
+  "lower arms": "鍓嶈噦",
+  "lower legs": "灏忚吙",
+  "neck": "棰堥儴",
+  "shoulders": "鑲╅儴",
+  "upper arms": "涓婅噦",
+  "upper legs": "澶ц吙",
+  "waist": "鏍稿績",
 };
 
-// 目标肌肉中文映射
+// 鐩爣鑲岃倝涓枃鏄犲皠
 const TARGET_CN = {
-  "abs": "腹肌",
-  "pectorals": "胸肌",
-  "biceps": "二头肌",
-  "triceps": "三头肌",
-  "glutes": "臀肌",
-  "delts": "三角肌",
-  "upper back": "上背",
-  "lats": "背阔肌",
-  "calves": "小腿",
-  "quads": "股四头肌",
-  "forearms": "前臂",
-  "cardiovascular system": "心肺",
-  "hamstrings": "腘绳肌",
-  "spine": "脊柱",
-  "traps": "斜方肌",
-  "adductors": "内收肌",
-  "abductors": "外展肌",
-  "serratus anterior": "前锯肌",
-  "levator scapulae": "肩胛提肌",
+  "abs": "鑵硅倢",
+  "pectorals": "鑳歌倢",
+  "biceps": "浜屽ご鑲?,
+  "triceps": "涓夊ご鑲?,
+  "glutes": "鑷€鑲?,
+  "delts": "涓夎鑲?,
+  "upper back": "涓婅儗",
+  "lats": "鑳岄様鑲?,
+  "calves": "灏忚吙",
+  "quads": "鑲″洓澶磋倢",
+  "forearms": "鍓嶈噦",
+  "cardiovascular system": "蹇冭偤",
+  "hamstrings": "鑵樼怀鑲?,
+  "spine": "鑴婃煴",
+  "traps": "鏂滄柟鑲?,
+  "adductors": "鍐呮敹鑲?,
+  "abductors": "澶栧睍鑲?,
+  "serratus anterior": "鍓嶉敮鑲?,
+  "levator scapulae": "鑲╄儧鎻愯倢",
 };
 
-// 居家可用器材集合
+// 灞呭鍙敤鍣ㄦ潗闆嗗悎
 const HOME_EQUIPMENT = [
   "body weight", "dumbbell", "kettlebell", "band", "resistance band",
   "stability ball", "medicine ball", "foam roll", "roller",
   "bosu ball", "rope", "wheel roller", "ez barbell"
 ];
 
-// 难度映射
-const DIFFICULTY_CN = { 1: "入门", 2: "中级", 3: "高级" };
+// 闅惧害鏄犲皠
+const DIFFICULTY_CN = { 1: "鍏ラ棬", 2: "涓骇", 3: "楂樼骇" };
 
 export async function loadData() {
   if (_data) return _data;
@@ -108,15 +107,14 @@ export function getTargetCN(t) {
 }
 
 export function getDifficultyCN(d) {
-  return DIFFICULTY_CN[d] || "中级";
+  return DIFFICULTY_CN[d] || "涓骇";
 }
 
 export function isHomeEquipment(eq) {
   return HOME_EQUIPMENT.includes(eq);
 }
 
-// 按条件筛选
-export function filter({ keyword = "", bodyPart = "", equipment = "", target = "", homeOnly = false } = {}) {
+// 鎸夋潯浠剁瓫閫?export function filter({ keyword = "", bodyPart = "", equipment = "", target = "", homeOnly = false } = {}) {
   if (!_data) return [];
   let result = _data;
 
@@ -151,7 +149,7 @@ export function getById(id) {
   return _data.find(ex => ex.id === id);
 }
 
-// 获取筛选选项
+// 鑾峰彇绛涢€夐€夐」
 export function getFilterOptions() {
   if (!_data) return { bodyParts: [], equipment: [], targets: [] };
   const bodyParts = [...new Set(_data.map(ex => ex.body_part))].sort();
@@ -159,9 +157,8 @@ export function getFilterOptions() {
   const targets = [...new Set(_data.map(ex => ex.target))].sort();
   return { bodyParts, equipment, targets };
 }
-
-// 图片路径修正：相对于 app 目录，需要回退一层访问 images/videos
+// 图片路径修正：直接返回路径（图片已移入 app 目录）
 export function assetPath(path) {
   if (!path) return "";
-  return "../" + path;
+  return path;
 }
