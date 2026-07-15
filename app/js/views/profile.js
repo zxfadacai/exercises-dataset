@@ -35,7 +35,7 @@ export async function renderProfile(container) {
         <div class="menu-item">
           <div style="flex:1">
             <div class="mi-text">${r.planGoal || "训练"}</div>
-            <div style="font-size:12px;color:var(--text-secondary);margin-top:2px">
+            <div style="font-size:12px;color:var(--muted);margin-top:2px">
               ${formatDate(r.date)} | ${r.exerciseCount}个动作 | ${r.duration}分钟
             </div>
           </div>
@@ -46,12 +46,12 @@ export async function renderProfile(container) {
     <div style="padding:0 16px 8px"><div class="section-title" style="font-size:18px">设置</div></div>
     <div class="menu-list">
       <button class="menu-item" id="themeToggle">
-        ${ICONS.home}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
         <div class="mi-text">${theme === "light" ? "切换到暗色模式" : "切换到亮色模式"}</div>
         <span class="mi-arrow">›</span>
       </button>
     </div>
-    <div style="padding:24px 16px;text-align:center;font-size:12px;color:var(--text-tertiary)">
+    <div style="padding:24px 16px;text-align:center;font-size:12px;color:var(--dim)">
       健身助手 v1.0<br>动作数据 1324条 | MIT License
     </div>
   `;

@@ -163,5 +163,5 @@ export function getFilterOptions() {
 // 图片路径修正：相对于 app 目录，需要回退一层访问 images/videos
 export function assetPath(path) {
   if (!path) return "";
-  return "../" + path;
+  return path;
 }

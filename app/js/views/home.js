@@ -56,8 +56,7 @@ export async function renderHome(container, switchTab) {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px">
           <div style="font-size: 16px; font-weight: 700">今日进度</div>
           <div style="display: flex; align-items: center; gap: 6px; color: var(--accent); font-size: 12px; font-weight: 600">
-            <span style="width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite"></span>
-            <span>Active</span>
+            <span>今日概览</span>
           </div>
         </div>
         <div style="display: flex; justify-content: center; gap: 20px">
@@ -77,7 +76,7 @@ export async function renderHome(container, switchTab) {
           </div>
           <div style="text-align: center">
             <div style="position: relative; display: inline-block">
-              ${renderProgressRing(Math.min(stats.totalSessions * 5, 100), "#FF4757", 70)}
+              ${renderProgressRing(Math.min(stats.totalSessions, 100), "#FF4757", 70)}
               <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800">${stats.totalSessions}</div>
             </div>
             <div style="font-size: 11px; color: var(--muted); margin-top: 6px">总组数</div>
@@ -137,7 +136,7 @@ export async function renderHome(container, switchTab) {
         <div class="exp-v2-icon">${ICONS.search}</div>
         <div class="exp-v2-text">
           <div class="exp-v2-title">动作库</div>
-          <div class="exp-v2-sub">1324个动作，按部位、器材等筛选</div>
+          <div class="exp-v2-sub">${getAll().length}个动作，按部位、器材等筛选</div>
         </div>
         <svg class="exp-v2-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </button>
@@ -149,7 +148,15 @@ export async function renderHome(container, switchTab) {
       var qp = quickPlans.find(q => q.id === btn.dataset.quick);
       if (qp) {
         var plan = generatePlan(qp.params);
-        renderPlanView(container, plan);
+        var overlay = document.createElement("div");
+        overlay.className = "detail-overlay";
+        document.body.appendChild(overlay);
+        renderPlanView(overlay, plan, qp.params);
+        var closeBtn = document.createElement("button");
+        closeBtn.innerHTML = ICONS.close;
+        closeBtn.style.cssText = "position:absolute;top:calc(12px + var(--safe-top,0px));right:20px;z-index:10;display:flex;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:50%";
+        closeBtn.addEventListener("click", function() { overlay.remove(); });
+        overlay.insertBefore(closeBtn, overlay.firstChild);
       }
     });
   });

@@ -133,12 +133,12 @@ export function generatePlan(params) {
  // 计算可用时间（秒）
   const totalSeconds = duration * 60;
   const perExerciseTime = estimateExerciseTime(goalCfg.sets, goalCfg.rest);
-  const maxExercises = Math.floor(totalSeconds / perExerciseTime);
+  const maxExercises = Math.max(3, Math.ceil(totalSeconds / perExerciseTime * 1.3));
 
   // 从每个肌肉群组中选取动作
   let selected = [];
   const totalSlots = splitCfg.groups.reduce((sum, g) => sum + g.targetCount, 0);
-  const exercisesPerGroup = Math.max(1, Math.floor(maxExercises / totalSlots));
+  const exercisesPerGroup = Math.max(2, Math.ceil(maxExercises / totalSlots));
 
   for (const group of splitCfg.groups) {
     const count = Math.min(group.targetCount * Math.ceil(exercisesPerGroup / group.targetCount), group.targetCount * 2);
@@ -183,6 +183,40 @@ export function generatePlan(params) {
     estimatedMinutes: Math.ceil((selected.length * perExerciseTime) / 60),
     createdAt: new Date().toISOString(),
   };
+
+  // 如果生成了 0 个动作，放宽器材限制重试
+  if (plan.exercises.length === 0) {
+    const fallbackPool = allExercises.filter(ex => isHomeEquipment(ex.equipment));
+    if (fallbackPool.length > 0) {
+      let fallbackSelected = [];
+      for (const group of splitCfg.groups) {
+        const count = Math.min(group.targetCount * 2, maxExercises - fallbackSelected.length);
+        const picks = pickFromPool(fallbackPool, group.bodyParts, count, difficulty);
+        fallbackSelected.push(...picks);
+      }
+      if (goalCfg.cardioMix) {
+        const cardio = fallbackPool.filter(ex => ex.body_part === "cardio");
+        if (cardio.length > 0 && fallbackSelected.length < maxExercises) {
+          fallbackSelected.push(shuffle(cardio)[0]);
+        }
+      }
+      plan.exercises = fallbackSelected.slice(0, maxExercises).map((ex, i) => ({
+        order: i + 1,
+        id: ex.id,
+        name: ex.name,
+        bodyPart: ex.body_part,
+        target: ex.target,
+        equipment: ex.equipment,
+        image: ex.image,
+        gif: ex.gif,
+        sets: goalCfg.sets,
+        reps: goalCfg.reps,
+        rest: goalCfg.rest,
+        restLabel: goalCfg.restLabel,
+        steps: ex.steps,
+      }));
+    }
+  }
 
   return plan;
 }

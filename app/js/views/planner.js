@@ -113,17 +113,17 @@ export function renderPlanner(container) {
   // 生成按钮
   container.querySelector("#genBtn").addEventListener("click", () => {
     const plan = generatePlan(plannerState);
-    renderPlanView(container, plan);
+    renderPlanView(container, plan, Object.assign({}, plannerState));
   });
 }
 
-export function renderPlanView(container, plan) {
+export function renderPlanView(container, plan, params) {
   const result = container.querySelector("#planResult") || container;
   result.innerHTML = `
     <div class="plan-summary">
       <div style="text-align:center;margin-bottom:16px">
         <div style="font-size:18px;font-weight:700">${plan.goalLabel} - ${plan.splitLabel}</div>
-        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px">${plan.exercises.length}个动作 | 预计${plan.estimatedMinutes}分钟</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">${plan.exercises.length}个动作 | 预计${plan.estimatedMinutes}分钟</div>
       </div>
       <div class="plan-stat">
         <div><div class="stat-val">${plan.exercises.length}</div><div class="stat-label">动作</div></div>
@@ -131,7 +131,7 @@ export function renderPlanView(container, plan) {
         <div><div class="stat-val">${plan.exercises[0]?.sets || 3}</div><div class="stat-label">组数</div></div>
       </div>
     </div>
-    <div style="background:var(--bg-surface);border-radius:var(--radius-lg);margin:0 16px 16px;border:1px solid var(--border);overflow:hidden" id="planList">
+    <div style="background:var(--surface);border-radius:var(--r-lg);margin:0 16px 16px;border:1px solid var(--border);overflow:hidden" id="planList">
       ${plan.exercises.map((ex, i) => `
         <div class="plan-exercise">
           <div class="pe-num">${i + 1}</div>
@@ -157,16 +157,18 @@ export function renderPlanView(container, plan) {
   });
 
   result.querySelector("#savePlanBtn").addEventListener("click", async () => {
-    await savePlan(plan);
     const btn = result.querySelector("#savePlanBtn");
-    btn.textContent = "已保存";
+    btn.disabled = true;
+    btn.textContent = "???...";
+    await savePlan(plan);
+    btn.textContent = "???";
     btn.style.borderColor = "var(--accent)";
     btn.style.color = "var(--accent)";
   });
 
   result.querySelector("#regenBtn").addEventListener("click", () => {
-    const newPlan = generatePlan(plannerState);
-    renderPlanView(container, newPlan);
+    const newPlan = generatePlan(params || plannerState);
+    renderPlanView(container, newPlan, params || plannerState);
   });
 
   result.scrollIntoView({ behavior: "smooth" });
